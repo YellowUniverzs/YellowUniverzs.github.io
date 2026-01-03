@@ -1,3 +1,5 @@
+import { createMiniFuse } from "../js/miniFuse.js";
+
 /* =========================
    PRELOADER + ANTI FOUC
 ========================= */
@@ -101,24 +103,24 @@ let currentCategory = "all";
 let currentPage = 1;
 const perPage = 12;
 let searchQuery = "";
+let fuseEngine = null;
 
+/* =========================
+   SEARCH ENGINE
+========================= */
+function updateSearchEngine() {
+  fuseEngine = createMiniFuse(
+    articlesData[currentCategory],
+    {
+      keys: ["title", "desc"],
+      limit: 500
+    }
+  );
+}
 /* =========================
    SEARCH CACHE
 ========================= */
 const searchCache = new Map();
-
-/* =========================
-   FUZZY SEARCH
-========================= */
-function fuzzyMatch(text, query) {
-  let t = 0;
-  for (let q of query.toLowerCase()) {
-    t = text.indexOf(q, t);
-    if (t === -1) return false;
-    t++;
-  }
-  return true;
-}
 
 /* =========================
    FILTER DATA
@@ -131,8 +133,9 @@ const getFilteredData = () => {
   list.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   if (searchQuery.trim()) {
-    list = list.filter(a => fuzzyMatch(a._searchText, searchQuery));
-  }
+  if (!fuseEngine) updateSearchEngine();
+  list = fuseEngine.search(searchQuery);
+}
 
   searchCache.set(key, list);
   return list;
@@ -277,10 +280,13 @@ pageJumpSelect.onchange = () => {
 document.querySelectorAll("[data-category]").forEach(el => {
   el.onclick = e => {
     e.preventDefault();
+
     currentCategory = el.dataset.category;
     currentPage = 1;
+
     searchCache.clear();
-    renderArticles();
+    updateSearchEngine();   // ← DI SINI
+    renderArticles();       // ← LALU render
   };
 });
 
@@ -294,9 +300,8 @@ searchInput.addEventListener("input", e => {
   }, 250);
 });
 
-
-
 /* =========================
    INIT
 ========================= */
+updateSearchEngine();
 renderArticles();
