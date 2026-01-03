@@ -3,12 +3,14 @@
    - Aurora
    - Stars
    - Theme Toggle
+   - Lazy Load Images
 ========================= */
 
 /* =========================
    SAFE DOM HELPER
 ========================= */
 const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
 
 /* =========================
    AURORA
@@ -64,11 +66,41 @@ function initThemeToggle() {
 }
 
 /* =========================
+   LAZY LOAD IMAGES
+========================= */
+function initLazyLoad() {
+  const lazyImages = $$("img.lazy-img");
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.add('loaded');
+          obs.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: "100px"
+    });
+
+    lazyImages.forEach(img => observer.observe(img));
+  } else {
+    // fallback: load all images immediately
+    lazyImages.forEach(img => {
+      img.src = img.dataset.src;
+      img.classList.add('loaded');
+    });
+  }
+}
+
+/* =========================
    INIT SHARED
 ========================= */
 document.addEventListener('DOMContentLoaded', () => {
   initAurora();
   initStars();
   initThemeToggle();
+  initLazyLoad();
 });
-l
