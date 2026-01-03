@@ -1,5 +1,3 @@
-import { createMiniFuse } from "../js/fuse.js";
-
 /* =========================
    PRELOADER + ANTI FOUC
 ========================= */
@@ -46,6 +44,8 @@ document.addEventListener("click", () => {
 /* =========================
    IMPORT DATA
 ========================= */
+import { createMiniFuse } from "../js/fuse.js";
+
 import { koreaArticles } from "../js/article/korea.js";
 import { chinaArticles } from "../js/article/china.js";
 import { japanArticles } from "../js/article/japan.js";
