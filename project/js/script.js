@@ -1,7 +1,7 @@
 /* =========================
    IMPORT SEARCH ENGINE
 ========================= */
-import { CreateFuse } from "../js/fuse.js";
+import { CreateFuse } from "./fuse.js";
 
 /* =========================
    PRELOADER + ANTI FOUC
