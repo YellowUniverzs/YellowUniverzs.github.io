@@ -14,6 +14,7 @@
   --blue: #1ea7ff;
   --midnight: #1e3a8a;
 }
+
 /* ===== PRELOADER ===== */
 #preloader {
   position: fixed;
@@ -181,7 +182,6 @@ nav .dropdown-content {
   overflow: hidden;
   z-index: 5;
   backdrop-filter: saturate(1.2) blur(2px);
-
   opacity: 0;
   transform: translateY(10px);
   pointer-events: none;
@@ -404,29 +404,31 @@ body.dark .aurora { opacity: 0; }
   height: 160px;
   object-fit: cover;
   border-radius: 8px;
-}
-
-.article h2 { margin: 0; font-size: 1.1rem; }
-.article p { margin: 0.25rem 0 0; opacity: 0.9; }
-
-/* ========================= */
-/* LAZY IMAGE                */
-/* ========================= */
-.article img.thumb {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .article img.thumb.loaded {
   opacity: 1;
+  transform: scale(1);
 }
 
 .article h2 { margin: 0; font-size: 1.1rem; }
 .article p { margin: 0.25rem 0 0; opacity: 0.9; }
+
+/* ========================= */
+/* LAZY IMAGE GLOBAL          */
+/* ========================= */
+.lazy-img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* ========================= */
 /* SKELETON LOADING          */
@@ -472,6 +474,7 @@ body.dark .aurora { opacity: 0; }
 
 /* ========================= */
 /* NO ARTICLES               */
+/* ========================= */
 .no-articles {
   grid-column: 1 / -1;
   text-align: center;

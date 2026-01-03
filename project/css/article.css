@@ -61,16 +61,17 @@ h1 {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
 .overline {
   display: inline-block;
-  border-top: 2px solid #fff; /* warna putih */
-  padding-top: 2px;           /* jarak teks dengan garis */
-  color: white;               /* biar teks kontras */
+  border-top: 2px solid #fff;
+  padding-top: 2px;
+  color: white;
 }
 
 .underline-medium {
   display: inline-block;
-  border-bottom: 3px solid #fff; /* garis putih tebal sedang */
+  border-bottom: 3px solid #fff;
   padding-bottom: 4px;
   color: white;
 }
@@ -82,12 +83,13 @@ h1 {
   border-image-slice: 1;
   padding-bottom: 3px;
 }
+
 .overline-gradient {
   display: inline-block;
   border-top: 4px solid transparent;
   border-image: linear-gradient(to right, #ff7e5f, #feb47b);
   border-image-slice: 1;
-  padding-top: 4px; /* jarak biar teks nggak terlalu nempel */
+  padding-top: 4px;
 }
 
 /* =========================
@@ -130,52 +132,55 @@ h1 {
   overflow: hidden;
 }
 
-/* Ikon */
 .switch .sun, .switch .moon {
   position: absolute;
   font-size: 16px;
   transition: opacity 2.8s ease, transform 2.8s ease;
 }
+
 .switch .sun {
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
+
 .switch .moon {
   opacity: 0;
   transform: rotate(-180deg) scale(0.6);
 }
 
-/* Saat aktif */
 .switch input:checked + .slider {
   background: var(--accent);
   box-shadow: 0 0 20px var(--accent);
 }
+
 .switch input:checked + .slider .knob {
   transform: translateX(38px);
   background: #000;
 }
+
 .switch input:checked + .slider .sun {
   opacity: 0;
   transform: rotate(180deg) scale(0.6);
 }
+
 .switch input:checked + .slider .moon {
   opacity: 1;
   transform: rotate(360deg) scale(1);
 }
 
-/* Glow effect saat hover */
 .switch:hover .slider {
   animation: pulseGlow 2s infinite alternate;
 }
+
 @keyframes pulseGlow {
   from { box-shadow: 0 0 10px rgba(0,255,200,0.4); }
   to   { box-shadow: 0 0 22px rgba(0,255,200,1); }
 }
 
-/* Mode gelap */
 body.dark {
   background: #000;
 }
+
 body.dark .aurora {
   opacity: 0;
 }
@@ -193,6 +198,7 @@ a.back {
   text-decoration: none;
   font-weight: bold;
 }
+
 a.back:hover {
   background: #00ccaa;
 }
@@ -213,6 +219,7 @@ footer {
   width:100%; height:100%;
   z-index:-2;
 }
+
 .aurora span {
   position: absolute;
   width:200%; height:200%;
@@ -223,17 +230,20 @@ footer {
   animation: wave 12s ease-in-out infinite alternate;
   mix-blend-mode: screen;
 }
+
 @keyframes wave {
   0% { transform: rotate(0) scale(1); }
   50% { transform: rotate(25deg) scale(1.2); }
   100% { transform: rotate(-25deg) scale(1.1); }
 }
+
 .stars {
   position:fixed;
   top:0; left:0;
   width:100%; height:100%;
   z-index:-1;
 }
+
 .star {
   position: absolute;
   width: 2px; height: 2px;
@@ -242,62 +252,43 @@ footer {
   opacity: 0.8;
   animation: twinkle 2s infinite alternate;
 }
+
 @keyframes twinkle {
   from { opacity: 0.2; }
   to { opacity: 1; }
 }
 
 /* =========================
+   LAZY IMAGE
+   ========================= */
+.lazy-img {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.lazy-img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =========================
    RESPONSIVE
    ========================= */
-
-/* Tablet (>=600px) */
 @media (min-width: 600px) {
-  h1 {
-    font-size: 2rem;
-    line-height: 1.5;
-  }
-  .container {
-    max-width: 90%;
-  }
-  .content {
-    max-width: 90%;
-    font-size: 1rem;
-    line-height: 1.7;
-  }
+  h1 { font-size: 2rem; line-height: 1.5; }
+  .container { max-width: 90%; }
+  .content { max-width: 90%; font-size: 1rem; line-height: 1.7; }
 }
 
-/* Desktop (>=900px) */
 @media (min-width: 900px) {
-  h1 {
-    font-size: 2.2rem;
-    line-height: 1.5;
-    max-width: 80%;
-    margin: 1.5rem auto;
-  }
-  .container {
-    max-width: 900px;
-  }
-  .content {
-    max-width: 850px;
-    font-size: 1.05rem;
-    line-height: 1.8;
-  }
+  h1 { font-size: 2.2rem; line-height: 1.5; max-width: 80%; margin: 1.5rem auto; }
+  .container { max-width: 900px; }
+  .content { max-width: 850px; font-size: 1.05rem; line-height: 1.8; }
 }
 
-/* Ultra-wide (>=1200px) */
 @media (min-width: 1200px) {
-  h1 {
-    font-size: 2.5rem;
-    max-width: 70%;
-  }
-  .container {
-    max-width: 1000px;
-  }
-  .content {
-    max-width: 900px;
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
+  h1 { font-size: 2.5rem; max-width: 70%; }
+  .container { max-width: 1000px; }
+  .content { max-width: 900px; font-size: 1.1rem; line-height: 1.8; }
 }
-
