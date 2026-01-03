@@ -123,6 +123,19 @@ function updateSearchEngine() {
 const searchCache = new Map();
 
 /* =========================
+   FUZZY SEARCH
+========================= */
+function fuzzyMatch(text, query) {
+  let t = 0;
+  for (let q of query.toLowerCase()) {
+    t = text.indexOf(q, t);
+    if (t === -1) return false;
+    t++;
+  }
+  return true;
+}
+
+/* =========================
    FILTER DATA
 ========================= */
 const getFilteredData = () => {
@@ -280,13 +293,10 @@ pageJumpSelect.onchange = () => {
 document.querySelectorAll("[data-category]").forEach(el => {
   el.onclick = e => {
     e.preventDefault();
-
     currentCategory = el.dataset.category;
     currentPage = 1;
-
     searchCache.clear();
-    updateSearchEngine();   // ← DI SINI
-    renderArticles();       // ← LALU render
+    renderArticles();
   };
 });
 
@@ -299,6 +309,8 @@ searchInput.addEventListener("input", e => {
     renderArticles();
   }, 250);
 });
+
+
 
 /* =========================
    INIT
