@@ -1,4 +1,9 @@
 /* =========================
+   IMPORT SEARCH ENGINE
+========================= */
+import { CreateFuse } from "../js/fuse.js";
+
+/* =========================
    PRELOADER + ANTI FOUC
 ========================= */
 window.addEventListener("load", () => {
@@ -6,17 +11,16 @@ window.addEventListener("load", () => {
   document.getElementById("preloader")?.classList.add("hidden");
 });
 
-
 /* =========================
    REFS DOM
 ========================= */
-const aurora = document.querySelector('.aurora');
-const starsContainer = document.querySelector('.stars');
-const articlesContainer = document.getElementById('articlesContainer');
-const paginationContainer = document.getElementById('pagination');
-const searchInput = document.getElementById('searchInput');
-const pageJumpWrap = document.getElementById('pageJumpWrap');
-const pageJumpSelect = document.getElementById('pageJumpSelect');
+const aurora = document.querySelector(".aurora");
+const starsContainer = document.querySelector(".stars");
+const articlesContainer = document.getElementById("articlesContainer");
+const paginationContainer = document.getElementById("pagination");
+const searchInput = document.getElementById("searchInput");
+const pageJumpWrap = document.getElementById("pageJumpWrap");
+const pageJumpSelect = document.getElementById("pageJumpSelect");
 const modeToggle = document.getElementById("modeToggle");
 
 /* =========================
@@ -37,23 +41,25 @@ document.querySelectorAll("nav .dropdown > button").forEach(button => {
 });
 
 document.addEventListener("click", () => {
-  document.querySelectorAll("nav .dropdown-content.show")
+  document
+    .querySelectorAll("nav .dropdown-content.show")
     .forEach(el => el.classList.remove("show"));
 });
 
 /* =========================
-   IMPORT DATA
+   IMPORT DATA ARTIKEL
 ========================= */
-import { createMiniFuse } from "../js/fuse.js";
 import { koreaArticles } from "../js/article/korea.js";
 import { chinaArticles } from "../js/article/china.js";
 import { japanArticles } from "../js/article/japan.js";
 import { thailandArticles } from "../js/article/thailand.js";
+
 import { rekomendasiDramaKoreaArticles } from "../js/recommended/rekomendasi-drama-korea.js";
 import { rekomendasiDramaChinaArticles } from "../js/recommended/rekomendasi-drama-china.js";
 import { rekomendasiDramaJapanArticles } from "../js/recommended/rekomendasi-drama-japan.js";
 import { rekomendasiDramaThailandArticles } from "../js/recommended/rekomendasi-drama-thailand.js";
 import { rekomendasiAnimeArticles } from "../js/recommended/rekomendasi-anime.js";
+
 import { varietyKoreaArticles } from "../js/article/variety-korea.js";
 
 /* =========================
@@ -85,17 +91,6 @@ const articlesData = {
 };
 
 /* =========================
-   SEARCH INDEX
-========================= */
-const searchIndex = {};
-Object.keys(articlesData).forEach(category => {
-  searchIndex[category] = articlesData[category].map(a => ({
-    ...a,
-    _searchText: `${a.title} ${a.desc}`.toLowerCase()
-  }));
-});
-
-/* =========================
    STATE
 ========================= */
 let currentCategory = "all";
@@ -108,14 +103,15 @@ let fuseEngine = null;
    SEARCH ENGINE
 ========================= */
 function updateSearchEngine() {
-  fuseEngine = createMiniFuse(
-    articlesData[currentCategory],
+  fuseEngine = CreateFuse(
+    articlesData[currentCategory] || [],
     {
       keys: ["title", "desc"],
       limit: 500
     }
   );
 }
+
 /* =========================
    SEARCH CACHE
 ========================= */
@@ -124,21 +120,21 @@ const searchCache = new Map();
 /* =========================
    FILTER DATA
 ========================= */
-const getFilteredData = () => {
+function getFilteredData() {
   const key = `${currentCategory}__${searchQuery.toLowerCase()}`;
   if (searchCache.has(key)) return searchCache.get(key);
 
-  let list = (articlesData[currentCategory] || []).slice();
+  let list = [...(articlesData[currentCategory] || [])];
   list.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   if (searchQuery.trim()) {
     if (!fuseEngine) updateSearchEngine();
-    list = fuseEngine.search(searchQuery); // ← SUDAH ITEM LANGSUNG
+    list = fuseEngine.search(searchQuery);
   }
 
   searchCache.set(key, list);
   return list;
-};
+}
 
 /* =========================
    SKELETON
@@ -159,7 +155,7 @@ function renderSkeleton(count = perPage) {
 }
 
 /* =========================
-   LAZY IMAGE OBSERVER
+   LAZY IMAGE
 ========================= */
 const imageObserver = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
@@ -188,33 +184,34 @@ function renderArticles() {
     const start = (currentPage - 1) * perPage;
     const articles = data.slice(start, start + perPage);
 
-   if (!articles.length) {
-  articlesContainer.innerHTML = `
-    <div class="no-articles">
-      <img src="project/picture/asset/icons/search-white.png" alt="No Articles">
-      <div>Tidak ada artikel untuk ditampilkan.</div>
-    </div>`;
-} else {
-  articles.forEach(a => {
-    const div = document.createElement("div");
-    div.className = "article";
-    div.innerHTML = `
-      <a href="${a.link}" style="text-decoration:none;color:inherit">
-        <img data-src="${a.img}" class="thumb lazy-img" alt="${a.title}">
-        <div>
-          <h2>${a.title}</h2>
-          <small>${a.date}</small>
-          <p>${a.desc}</p>
+    if (!articles.length) {
+      articlesContainer.innerHTML = `
+        <div class="no-articles">
+          <img src="project/picture/asset/icons/search-white.png">
+          <div>Tidak ada artikel untuk ditampilkan.</div>
         </div>
-      </a>
-    `;
-    articlesContainer.appendChild(div);
-  });
+      `;
+    } else {
+      articles.forEach(a => {
+        const div = document.createElement("div");
+        div.className = "article";
+        div.innerHTML = `
+          <a href="${a.link}" style="text-decoration:none;color:inherit">
+            <img data-src="${a.img}" class="thumb lazy-img" alt="${a.title}">
+            <div>
+              <h2>${a.title}</h2>
+              <small>${a.date}</small>
+              <p>${a.desc}</p>
+            </div>
+          </a>
+        `;
+        articlesContainer.appendChild(div);
+      });
 
-  document.querySelectorAll(".lazy-img").forEach(img => {
-    imageObserver.observe(img);
-  });
-}
+      document.querySelectorAll(".lazy-img").forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
 
     renderPagination(totalPages);
     renderPageJump(totalPages);
@@ -238,21 +235,30 @@ function renderPagination(totalPages) {
   const prev = document.createElement("button");
   prev.textContent = "« Prev";
   prev.disabled = currentPage === 1;
-  prev.onclick = () => { currentPage--; renderArticles(); };
+  prev.onclick = () => {
+    currentPage--;
+    renderArticles();
+  };
   paginationContainer.appendChild(prev);
 
   for (let i = 1; i <= totalPages; i++) {
     const btn = document.createElement("button");
     btn.textContent = i;
     if (i === currentPage) btn.classList.add("active");
-    btn.onclick = () => { currentPage = i; renderArticles(); };
+    btn.onclick = () => {
+      currentPage = i;
+      renderArticles();
+    };
     paginationContainer.appendChild(btn);
   }
 
   const next = document.createElement("button");
   next.textContent = "Next »";
   next.disabled = currentPage === totalPages;
-  next.onclick = () => { currentPage++; renderArticles(); };
+  next.onclick = () => {
+    currentPage++;
+    renderArticles();
+  };
   paginationContainer.appendChild(next);
 }
 
@@ -279,13 +285,11 @@ pageJumpSelect.onchange = () => {
 document.querySelectorAll("[data-category]").forEach(el => {
   el.onclick = e => {
     e.preventDefault();
-
     currentCategory = el.dataset.category;
     currentPage = 1;
-
     searchCache.clear();
-    updateSearchEngine();   // ← DI SINI
-    renderArticles();       // ← LALU render
+    updateSearchEngine();
+    renderArticles();
   };
 });
 
