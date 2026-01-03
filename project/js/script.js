@@ -294,46 +294,7 @@ searchInput.addEventListener("input", e => {
   }, 250);
 });
 
-/* =========================
-   AURORA & STARS
-========================= */
-function setAurora() {
-  aurora.innerHTML = '';
-  ['rgba(0,255,200,0.4)','rgba(0,150,255,0.3)'].forEach((c,i)=>{
-    const s=document.createElement('span');
-    s.style.background=`radial-gradient(circle,${c},transparent 70%)`;
-    s.style.animationDuration=`${12+i*6}s`;
-    aurora.appendChild(s);
-  });
-}
-setAurora();
 
-function generateStars(n=80){
-  starsContainer.innerHTML='';
-  for(let i=0;i<n;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    s.style.left=Math.random()*innerWidth+'px';
-    s.style.top=Math.random()*innerHeight+'px';
-    starsContainer.appendChild(s);
-  }
-}
-generateStars();
-
-/* =========================
-   THEME TOGGLE
-========================= */
-document.addEventListener("DOMContentLoaded",()=>{
-  if(localStorage.getItem("theme")==="dark"){
-    document.body.classList.add("dark");
-    modeToggle.checked=true;
-  }
-});
-
-modeToggle?.addEventListener("change",()=>{
-  document.body.classList.toggle("dark",modeToggle.checked);
-  localStorage.setItem("theme",modeToggle.checked?"dark":"light");
-});
 
 /* =========================
    INIT
