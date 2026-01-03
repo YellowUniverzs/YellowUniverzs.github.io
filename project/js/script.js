@@ -129,13 +129,13 @@ const getFilteredData = () => {
   const key = `${currentCategory}__${searchQuery.toLowerCase()}`;
   if (searchCache.has(key)) return searchCache.get(key);
 
-  let list = (searchIndex[currentCategory] || []).slice();
+  let list = (articlesData[currentCategory] || []).slice();
   list.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   if (searchQuery.trim()) {
-  if (!fuseEngine) updateSearchEngine();
-  list = fuseEngine.search(searchQuery);
-}
+    if (!fuseEngine) updateSearchEngine();
+    list = fuseEngine.search(searchQuery); // ← SUDAH ITEM LANGSUNG
+  }
 
   searchCache.set(key, list);
   return list;
