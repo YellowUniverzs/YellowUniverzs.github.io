@@ -189,7 +189,7 @@ function renderArticles() {
    if (!articles.length) {
   articlesContainer.innerHTML = `
     <div class="no-articles">
-      <img src="../picture/asset/icons/search-white.png" alt="No Articles">
+      <img src="project/picture/asset/icons/search-white.png" alt="No Articles">
       <div>Tidak ada artikel untuk ditampilkan.</div>
     </div>`;
 } else {

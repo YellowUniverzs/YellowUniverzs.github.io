@@ -1,6 +1,6 @@
 /* =========================
    BASE STYLE (Mobile First)
-   ========================= */
+========================= */
 body {
   font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
@@ -43,6 +43,9 @@ h1 {
   display: inline-block;
 }
 
+/* =========================
+   POST META OVERLAY (Lazy visible)
+========================= */
 .post-meta-overlay {
   position: absolute;
   bottom: 8px;
@@ -52,8 +55,20 @@ h1 {
   background: rgba(0,0,0,0.5);
   padding: 3px 6px;
   border-radius: 4px;
+
+  opacity: 0;          /* awalnya tersembunyi */
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+.post-meta-overlay.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   CONTENT
+========================= */
 .content {
   max-width: 100%;
   margin: auto;
@@ -94,7 +109,7 @@ h1 {
 
 /* =========================
    TOGGLE MODE (Sun/Moon)
-   ========================= */
+========================= */
 .switch {
   position: relative;
   display: inline-block;
@@ -187,7 +202,7 @@ body.dark .aurora {
 
 /* =========================
    BUTTON & FOOTER
-   ========================= */
+========================= */
 a.back {
   display: inline-block;
   margin-top: 1rem;
@@ -212,7 +227,7 @@ footer {
 
 /* =========================
    AURORA & STARS
-   ========================= */
+========================= */
 .aurora {
   position: fixed;
   top:0; left:0;
@@ -260,21 +275,30 @@ footer {
 
 /* =========================
    LAZY IMAGE
-   ========================= */
+========================= */
+/* Placeholder lazy load */
 .lazy-img {
-  opacity: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: url('../../../../../picture/asset/icons/search.svg') no-repeat center center;
+  background-size: 50px 50px;
+  opacity: 0.5;
   transform: scale(0.95);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
 }
 
+/* Saat gambar sudah dimuat */
 .lazy-img.loaded {
   opacity: 1;
   transform: scale(1);
+  background: none;
 }
 
 /* =========================
    RESPONSIVE
-   ========================= */
+========================= */
 @media (min-width: 600px) {
   h1 { font-size: 2rem; line-height: 1.5; }
   .container { max-width: 90%; }

@@ -3,7 +3,8 @@
    - Aurora
    - Stars
    - Theme Toggle
-   - Lazy Load Images
+   - Lazy Load Images with placeholder
+   - Post Meta Overlay Lazy Load
 ========================= */
 
 /* =========================
@@ -66,7 +67,7 @@ function initThemeToggle() {
 }
 
 /* =========================
-   LAZY LOAD IMAGES
+   LAZY LOAD IMAGES WITH PLACEHOLDER
 ========================= */
 function initLazyLoad() {
   const lazyImages = $$("img.lazy-img");
@@ -77,21 +78,44 @@ function initLazyLoad() {
         if (entry.isIntersecting) {
           const img = entry.target;
           img.src = img.dataset.src;
-          img.classList.add('loaded');
+
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+
           obs.unobserve(img);
         }
       });
-    }, {
-      rootMargin: "100px"
-    });
+    }, { rootMargin: "100px" });
 
     lazyImages.forEach(img => observer.observe(img));
   } else {
-    // fallback: load all images immediately
     lazyImages.forEach(img => {
       img.src = img.dataset.src;
       img.classList.add('loaded');
     });
+  }
+}
+
+/* =========================
+   POST META OVERLAY LAZY LOAD
+========================= */
+function initMetaLazyLoad() {
+  const overlays = $$(".post-meta-overlay");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "100px" });
+
+    overlays.forEach(o => observer.observe(o));
+  } else {
+    overlays.forEach(o => o.classList.add("visible"));
   }
 }
 
@@ -103,4 +127,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initStars();
   initThemeToggle();
   initLazyLoad();
+  initMetaLazyLoad();
 });
