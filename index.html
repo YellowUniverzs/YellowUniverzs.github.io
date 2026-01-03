@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id" class="preload">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yellow Univerzs</title>
+  <link rel="stylesheet" href="project/css/style.css">
+</head>
+<body>
+  
+ <!-- Preloader Neon Futuristik + Lingkaran -->
+<div id="preloader">
+  <div class="loader">
+    <div class="circle outer"></div> <!-- Lingkaran luar -->
+    <div class="circle inner"></div> <!-- Lingkaran dalam -->
+    <div class="hand second"></div> <!-- Jarum detik -->
+    <div class="hand minute"></div> <!-- Jarum menit -->
+    <div class="hand center"></div> <!-- Jarum tengah diam -->
+  </div>
+</div>
+  <header>
+    <h1>Yellow Univerzs</h1>
+    <nav>  
+      <!-- Dropdown Drama per negara -->  
+      <div class="dropdown">  
+        <button>
+          <img src="project/picture/asset/icons/drama-info.svg" alt="Drama" class="icon-btn"> Drama
+        </button>  
+        <div class="dropdown-content">  
+          <a href="#" data-category="korea">🇰🇷 Drama Korea</a>  
+          <a href="#" data-category="china">🇨🇳 Drama China</a>  
+          <a href="#" data-category="japan">🇯🇵 Drama Jepang</a>  
+          <a href="#" data-category="thailand">🇹🇭 Drama Thailand</a>  
+        </div>  
+      </div>  
+      
+      <!-- Dropdown Rekomendasi -->  
+      <div class="dropdown">  
+        <button>
+          <img src="project/picture/asset/icons/recommend-drama.svg" alt="Recommendation" class="icon-btn"> Rekomendasi
+        </button>  
+        <div class="dropdown-content">  
+          <a href="#" data-category="rekomendasiDramaKorea">🇰🇷 Drama Korea</a>  
+          <a href="#" data-category="rekomendasiDramaChina">🇨🇳 Drama China</a>  
+          <a href="#" data-category="rekomendasiDramaJapan">🇯🇵 Dram Jepang</a>  
+          <a href="#" data-category="rekomendasiDramaThailand">🇹🇭 Drama Thailand</a>  
+          <a href="#" data-category="rekomendasiAnime">⭐ Anime</a>  
+        </div>  
+      </div>  
+      
+      <!-- Dropdown Variety Show -->
+      <div class="dropdown">  
+        <button>
+          <img src="project/picture/asset/icons/variety-show.svg" alt="Variety Show" class="icon-btn"> Variety Show
+        </button>  
+        <div class="dropdown-content">  
+          <a href="#" data-category="varietyKorea">🇰🇷 Variety Korea</a>  
+          <a href="#" data-category="varietyChina">🇨🇳 Variety China</a>  
+          <a href="#" data-category="varietyJepang">🇯🇵 Variety Jepang</a>  
+          <a href="#" data-category="varietyThailand">🇹🇭 Variety Thailand</a>  
+        </div>  
+      </div>
+      
+       <!-- Dropdown Sosial Media -->
+  <div class="dropdown">  
+    <button>
+      <img src="project/picture/asset/icons/at-luxe.svg" alt="Social Media" class="icon-btn"> Sosmed
+    </button>  
+    <div class="dropdown-content">  
+      <a href="https://www.instagram.com/yellow_univerzs" target="_blank" rel="noopener">
+        <img class="icon" src="project/picture/asset/sosial-media/instagram.svg" alt="Instagram"> Instagram
+      </a>
+      <a href="https://www.tiktok.com/@yellow_univerzs" target="_blank" rel="noopener">
+        <img class="icon" src="project/picture/asset/sosial-media/tiktok.svg" alt="TikTok"> TikTok
+      </a>
+      <a href="https://x.com/Fikri_Andrian16" target="_blank" rel="noopener">
+        <img class="icon" src="project/picture/asset/sosial-media/x.svg" alt="X"> X
+      </a>
+      <a href="https://www.facebook.com/share/16ua4tCTtP/" target="_blank" rel="noopener">
+        <img class="icon" src="project/picture/asset/sosial-media/facebook.svg" alt="Facebook"> Facebook
+      </a>
+    </div>  
+  </div>
+    </nav>
+
+    <!-- Kontrol + Search -->
+    <div class="controls">
+      <label class="switch">
+        <input type="checkbox" id="modeToggle">
+        <span class="slider">
+          <span class="knob">
+            <span class="sun">🌞</span>
+            <span class="moon">🌙</span>
+          </span>
+        </span>
+      </label>
+      
+      <div class="search-wrap">
+        <input type="search" id="searchInput" placeholder="Cari judul drama...">
+      </div>
+    </div>
+  </header>
+  
+  <!-- Efek latar -->
+  <div class="aurora"></div>
+  <div class="stars"></div>
+
+  <!-- Konten -->
+  <div class="container" id="articlesContainer"></div>
+
+  <!-- Pagination & Page Jump -->
+  <div class="pagination" id="pagination"></div>
+  <div class="page-jump" id="pageJumpWrap" style="display:none;">
+    <select id="pageJumpSelect" title="Loncat ke halaman"></select>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Yellow Univerzs</p>
+  </footer>
+  
+  <!-- Main script -->
+ <script type="module" src="project/js/script.js"></script>
+<script type="module" src="project/js/shared.js"></script>
+</body>
+</html>

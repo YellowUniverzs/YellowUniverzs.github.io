@@ -1,0 +1,303 @@
+/* =========================
+   BASE STYLE (Mobile First)
+   ========================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  text-shadow: 0 0 8px #0ff;
+  text-align: center;
+  line-height: 1.4;
+  word-wrap: break-word;
+  margin: 1rem 0;
+}
+
+.container {
+  max-width: 95%;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+
+.container img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.img-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.post-meta-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.content {
+  max-width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.overline {
+  display: inline-block;
+  border-top: 2px solid #fff; /* warna putih */
+  padding-top: 2px;           /* jarak teks dengan garis */
+  color: white;               /* biar teks kontras */
+}
+
+.underline-medium {
+  display: inline-block;
+  border-bottom: 3px solid #fff; /* garis putih tebal sedang */
+  padding-bottom: 4px;
+  color: white;
+}
+
+.gradient-underline {
+  display: inline-block;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(to right, #ff7e5f, #feb47b);
+  border-image-slice: 1;
+  padding-bottom: 3px;
+}
+.overline-gradient {
+  display: inline-block;
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(to right, #ff7e5f, #feb47b);
+  border-image-slice: 1;
+  padding-top: 4px; /* jarak biar teks nggak terlalu nempel */
+}
+
+/* =========================
+   TOGGLE MODE (Sun/Moon)
+   ========================= */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 74px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 34px;
+  transition: background 2.8s ease, box-shadow 2.8s ease;
+}
+
+.switch .knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 2.8s cubic-bezier(.34,1.56,.64,1), background 2.8s ease;
+  overflow: hidden;
+}
+
+/* Ikon */
+.switch .sun, .switch .moon {
+  position: absolute;
+  font-size: 16px;
+  transition: opacity 2.8s ease, transform 2.8s ease;
+}
+.switch .sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.switch .moon {
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.6);
+}
+
+/* Saat aktif */
+.switch input:checked + .slider {
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent);
+}
+.switch input:checked + .slider .knob {
+  transform: translateX(38px);
+  background: #000;
+}
+.switch input:checked + .slider .sun {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.6);
+}
+.switch input:checked + .slider .moon {
+  opacity: 1;
+  transform: rotate(360deg) scale(1);
+}
+
+/* Glow effect saat hover */
+.switch:hover .slider {
+  animation: pulseGlow 2s infinite alternate;
+}
+@keyframes pulseGlow {
+  from { box-shadow: 0 0 10px rgba(0,255,200,0.4); }
+  to   { box-shadow: 0 0 22px rgba(0,255,200,1); }
+}
+
+/* Mode gelap */
+body.dark {
+  background: #000;
+}
+body.dark .aurora {
+  opacity: 0;
+}
+
+/* =========================
+   BUTTON & FOOTER
+   ========================= */
+a.back {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: #0ff;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+a.back:hover {
+  background: #00ccaa;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  margin-top: 2rem;
+}
+
+/* =========================
+   AURORA & STARS
+   ========================= */
+.aurora {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:-2;
+}
+.aurora span {
+  position: absolute;
+  width:200%; height:200%;
+  top:-50%; left:-50%;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity:0.5;
+  animation: wave 12s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+@keyframes wave {
+  0% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(25deg) scale(1.2); }
+  100% { transform: rotate(-25deg) scale(1.1); }
+}
+.stars {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:-1;
+}
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Tablet (>=600px) */
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+  .container {
+    max-width: 90%;
+  }
+  .content {
+    max-width: 90%;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+/* Desktop (>=900px) */
+@media (min-width: 900px) {
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 1.5rem auto;
+  }
+  .container {
+    max-width: 900px;
+  }
+  .content {
+    max-width: 850px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}
+
+/* Ultra-wide (>=1200px) */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 2.5rem;
+    max-width: 70%;
+  }
+  .container {
+    max-width: 1000px;
+  }
+  .content {
+    max-width: 900px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
