@@ -1,9 +1,4 @@
 /* =========================
-   IMPORT SEARCH ENGINE
-========================= */
-import { CreateFuse } from "./fuse.js";
-
-/* =========================
    PRELOADER + ANTI FOUC
 ========================= */
 window.addEventListener("load", () => {
@@ -47,20 +42,22 @@ document.addEventListener("click", () => {
 });
 
 /* =========================
-   IMPORT DATA ARTIKEL
+   IMPORTS (WAJIB DI ATAS)
 ========================= */
-import { koreaArticles } from "../js/article/korea.js";
-import { chinaArticles } from "../js/article/china.js";
-import { japanArticles } from "../js/article/japan.js";
-import { thailandArticles } from "../js/article/thailand.js";
+import { CreateFuse } from "./fuse.js";
 
-import { rekomendasiDramaKoreaArticles } from "../js/recommended/rekomendasi-drama-korea.js";
-import { rekomendasiDramaChinaArticles } from "../js/recommended/rekomendasi-drama-china.js";
-import { rekomendasiDramaJapanArticles } from "../js/recommended/rekomendasi-drama-japan.js";
-import { rekomendasiDramaThailandArticles } from "../js/recommended/rekomendasi-drama-thailand.js";
-import { rekomendasiAnimeArticles } from "../js/recommended/rekomendasi-anime.js";
+import { koreaArticles } from "./article/korea.js";
+import { chinaArticles } from "./article/china.js";
+import { japanArticles } from "./article/japan.js";
+import { thailandArticles } from "./article/thailand.js";
 
-import { varietyKoreaArticles } from "../js/article/variety-korea.js";
+import { rekomendasiDramaKoreaArticles } from "./recommended/rekomendasi-drama-korea.js";
+import { rekomendasiDramaChinaArticles } from "./recommended/rekomendasi-drama-china.js";
+import { rekomendasiDramaJapanArticles } from "./recommended/rekomendasi-drama-japan.js";
+import { rekomendasiDramaThailandArticles } from "./recommended/rekomendasi-drama-thailand.js";
+import { rekomendasiAnimeArticles } from "./recommended/rekomendasi-anime.js";
+
+import { varietyKoreaArticles } from "./article/variety-korea.js";
 
 /* =========================
    DATA ARTIKEL
