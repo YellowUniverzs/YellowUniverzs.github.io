@@ -122,7 +122,13 @@ function getFilteredData() {
   if (searchCache.has(key)) return searchCache.get(key);
 
   let list = [...(articlesData[currentCategory] || [])];
-  list.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // ✅ SORTING AMAN TIMEZONE (ALL TIME)
+  list.sort(
+    (a, b) =>
+      new Date(b.date + "T00:00:00") -
+      new Date(a.date + "T00:00:00")
+  );
 
   if (searchQuery.trim()) {
     if (!fuseEngine) updateSearchEngine();
@@ -305,3 +311,4 @@ searchInput.addEventListener("input", e => {
 ========================= */
 updateSearchEngine();
 renderArticles();
+

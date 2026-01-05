@@ -1,13 +1,14 @@
 /* Data artikel */
    export const koreaArticles = [
+
 { 
       
-      title: "Last Summer", 
-      date: "2025-09-23",
-      desc: "Tayang 1 November Mendatang, KBS2 Bagikan Teaser Kedua untuk Drama Terbaru | Last Summer", 
-      img: "project/picture/2026/korea/lastsummer/thumbnail/last-summer-6.jpg", 
+      title: "K-Drama Terbaru Bulan Januari 2026", 
+      date: "2026-01-05",
+      desc: "K-Drama Series Terbaru Bulan Januari 2026", 
+      img: "project/picture/2026/korea/2026/januari/thumbnail/drakor-terbaru-januari.jpg", 
       rec: false,
-      link: "project/article/2026/korea/lastsummer/artikel7/index.html"
+      link: "project/article/2026/korea/2026/januari/artikel1/index.html"
       },
   ];
 
