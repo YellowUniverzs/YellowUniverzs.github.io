@@ -42,7 +42,7 @@ document.addEventListener("click", () => {
 });
 
 /* =========================
-   IMPORTS (WAJIB DI ATAS)
+   IMPORTS
 ========================= */
 import { CreateFuse } from "./fuse.js";
 
@@ -97,11 +97,24 @@ let searchQuery = "";
 let fuseEngine = null;
 
 /* =========================
+   NORMALIZE ARTICLE (ANTI UNDEFINED)
+========================= */
+function normalizeArticle(a) {
+  return {
+    title: a.title || "Tanpa Judul",
+    desc: a.desc || "",
+    img: a.img || "project/picture/asset/no-image.jpg",
+    link: a.link || "#",
+    date: a.date || "1970-01-01"
+  };
+}
+
+/* =========================
    SEARCH ENGINE
 ========================= */
 function updateSearchEngine() {
   fuseEngine = CreateFuse(
-    articlesData[currentCategory] || [],
+    (articlesData[currentCategory] || []).map(normalizeArticle),
     {
       keys: ["title", "desc"],
       limit: 500
@@ -115,21 +128,23 @@ function updateSearchEngine() {
 const searchCache = new Map();
 
 /* =========================
-   FILTER DATA
+   FILTER + SORT DATA (TERBARU DI ATAS)
 ========================= */
 function getFilteredData() {
   const key = `${currentCategory}__${searchQuery.toLowerCase()}`;
   if (searchCache.has(key)) return searchCache.get(key);
 
-  let list = [...(articlesData[currentCategory] || [])];
+  let list = (articlesData[currentCategory] || [])
+    .map(normalizeArticle);
 
-  // ✅ SORTING AMAN TIMEZONE (ALL TIME)
+  // ✅ SORT GLOBAL BERDASARKAN TANGGAL UPDATE
   list.sort(
     (a, b) =>
       new Date(b.date + "T00:00:00") -
       new Date(a.date + "T00:00:00")
   );
 
+  // 🔍 SEARCH (TETAP)
   if (searchQuery.trim()) {
     if (!fuseEngine) updateSearchEngine();
     list = fuseEngine.search(searchQuery);
@@ -311,4 +326,3 @@ searchInput.addEventListener("input", e => {
 ========================= */
 updateSearchEngine();
 renderArticles();
-
