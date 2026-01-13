@@ -1,6 +1,13 @@
 /* Data artikel */
    export const koreaArticles = [
-
+    {
+      title: "Lee Yul Eum, Hwang In Yeop & Hyeri | To You", 
+      date: "2026-01-13",
+      desc: "Lee Yul Eum Bergabung dengan Hwang In Youp dan Hyeri untuk Bintangi Drama Romance Comedy Terbaru | To You", 
+      img: "project/picture/2026/korea/lee-yul-eum/thumbnail/lee-yul-eum.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/lee-yul-eum/artikel1/index.html"
+    },
    {
       title: "In Your Radiant Season", 
       date: "2026-01-13",
@@ -14,7 +21,7 @@
       date: "2026-01-13",
       desc: "Han Ji Min Bergabung dengan Lee Byung Hun dalam Pembicaraan untuk Membintangi Drama Ramake Terbaru | Koreans", 
       img: "project/picture/2026/korea/han-ji-min/thumbnail/han-ji-min-x-lee-byung-hun.jpg", 
-      rec: false,
+      rec: true,
       link: "project/article/2026/korea/han-ji-min/artikel1/index.html"
     },
    {
@@ -31,7 +38,7 @@
       date: "2026-01-13",
       desc: "Netflix Bagikan Poster Pertama untuk Drama Terbaru | The Art of Sarah", 
       img: "project/picture/2026/korea/the-art-of-sarah/thumbnail/the-art-of-sarah.jpg", 
-      rec: false,
+      rec: true,
       link: "project/article/2026/korea/the-art-of-sarah/artikel1/index.html"
     },
     {
@@ -47,7 +54,7 @@
       date: "2026-01-13",
       desc: "tvN Konfirmasi Jadwal Perilisan untuk Drama Terbaru Park Min Young & Wi Ha Joon | Siren's Kiss", 
       img: "project/picture/2026/korea/sirens-kiss/thumbnail/sirens-kiss.jpg", 
-      rec: false,
+      rec: true,
       link: "project/article/2026/korea/sirens-kiss/artikel1/index.html"
     },
    {
