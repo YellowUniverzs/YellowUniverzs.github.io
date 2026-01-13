@@ -2,6 +2,38 @@
    export const koreaArticles = [
 
 {
+      title: "No Tail to Tell", 
+      date: "2026-01-12",
+      desc: "SBS Bagikan Teaser Preview untuk Drama Terbaru | No Tail to Tell", 
+      img: "project/picture/2026/korea/no-tail-to-tell/thumbnail/no-tail-to-tell.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/no-tail-to-tell/artikel1/index.html"
+    },
+   {
+      title: "Efficient Dating For Singles", 
+      date: "2026-01-12",
+      desc: "JTBC Bagikan Teaser Pertama untuk Drama Terbaru | Efficient Dating For Singles", 
+      img: "project/picture/2026/korea/efficient-dating-for-singles/thumbnail/efficient-dating-for-singles-1.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/efficient-dating-for-singles/artikel2/index.html"
+    },
+   {
+      title: "Kim Jae Young | The Roundup 5", 
+      date: "2026-01-12",
+      desc: "Kim Jae Young Dikonfirmasi Akan Bintangi Film Terbaru | The Roundup 5", 
+      img: "project/picture/2026/korea/kim-jae-young/thumbnail/kim-jae-young.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/kim-jae-young/artikel1/index.html"
+    },
+  {
+      title: "Can This Love Be Translated?", 
+      date: "2026-01-12",
+      desc: "SBS dan Netflix Bagikan Still Cut's Karakter untuk Drama Terbaru | Can This Love Be Translated?", 
+      img: "project/picture/2026/korea/can-this-love-be-translated/thumbnail/can-this-love-be-translated.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/can-this-love-be-translated/artikel1/index.html"
+    },
+   {
       title: "Shin Min Ah & Lee Jin Wook | Wed Thurs Fri", 
       date: "2026-01-09",
       desc: "Shin Min Ah & Lee Jin Wook Dikabarkan Akan Bintangi Drama Romance Terbaru | Wed Thurs Fri", 
@@ -9,7 +41,7 @@
       rec: false,
       link: "project/article/2026/korea/wed-thurs-fri/artikel1/index.html"
     },
-{
+   {
       title: "Hwang In Yeop | Human X Gumiho", 
       date: "2026-01-08",
       desc: "Hwang In Yeop Dikabarkan Bergabung dengan Ji Chang Wook dan Jun Ji Hyun Bintangi Drama Terbaru | Human X Gumiho", 
@@ -17,8 +49,7 @@
       rec: true,
       link: "project/article/2026/korea/human-x-gumiho/artikel1/index.html"
     },
-
-  {
+   {
       title: "Hani EXID | Love is Coming", 
       date: "2026-01-08",
       desc: "Hani EXID Sedang Dalam Pembicaraan untuk Bintangi Drama Akhir Pekan Terbaru | Love is Coming", 
@@ -42,7 +73,7 @@
       rec: false,
       link: "project/article/2026/korea/beauty-in-the-beast/artikel1/index.html"
     },
-    {
+   {
       title: "Park Min Young & Yook Sungjae BTOB | Nine to Six", 
       date: "2026-01-06",
       desc: "Park Min Young & Yook Sungjae BTOB dalam Pembicaraan untuk Membintangi Drama Romance Terbaru | Nine to Six", 
@@ -58,7 +89,7 @@
       rec: false,
       link: "project/article/2026/korea/the-sword-a-legend-of-red-wolf/artikel1/index.html"
     },
-    {
+   {
       title: "Park Jin Hee & Nam Sang Ji | Red Pearl", 
       date: "2026-01-05",
       desc: "Park Jin Hee & Nam Sang Ji Akan Membintangi Drama Harian Terbaru | Red Pearl", 
@@ -66,7 +97,7 @@
       rec: true,
       link: "project/article/2026/korea/red-pearl/artikel1/index.html"
     },
-    {
+   {
       title: "Song Joong Ki & Park Ji Hyun", 
       date: "2026-01-05",
       desc: "Song Joong Ki & Park Ji Hyun Sedang dalam Pembicaraan untuk Bintangi Drama Romance Comedy Terbaru | Love Cloud", 
@@ -74,7 +105,7 @@
       rec: false,
       link: "project/article/2026/korea/love-cloud/artikel1/index.html"
     },
-    {
+   {
       title: "K-Drama Terbaru Bulan Januari 2026", 
       date: "2026-01-05",
       desc: "K-Drama Series Terbaru Bulan Januari 2026", 
