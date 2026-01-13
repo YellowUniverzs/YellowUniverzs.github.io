@@ -1,7 +1,16 @@
 /* Data artikel */
    export const koreaArticles = [
 
-{
+   {
+      title: "Siren's Kiss", 
+      date: "2026-01-12",
+      desc: "tvN Konfirmasi Jadwal Perilisan untuk Drama Terbaru Park Min Young & Wi Ha Joon | Siren's Kiss", 
+      img: "project/picture/2026/korea/sirens-kiss/thumbnail/sirens-kiss.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/sirens-kiss/artikel1/index.html"
+    },
+
+   {
       title: "No Tail to Tell", 
       date: "2026-01-12",
       desc: "SBS Bagikan Teaser Preview untuk Drama Terbaru | No Tail to Tell", 
