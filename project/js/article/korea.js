@@ -1,15 +1,21 @@
 /* Data artikel */
    export const koreaArticles = [
-
+    {
+      title: "Go Min Si | Moral Family", 
+      date: "2026-01-13",
+      desc: "Go Min Si Dikonfirmasi Bintangi Film Terbaru | Moral Family ", 
+      img: "project/picture/2026/korea/go-min-si/thumbnail/go-min-si.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/go-min-si/artikel1/index.html"
+    },
    {
-      title: "Siren's Kiss", 
-      date: "2026-01-12",
+      title: "Park Min Young & Wi Ha Joon | Siren's Kiss", 
+      date: "2026-01-13",
       desc: "tvN Konfirmasi Jadwal Perilisan untuk Drama Terbaru Park Min Young & Wi Ha Joon | Siren's Kiss", 
       img: "project/picture/2026/korea/sirens-kiss/thumbnail/sirens-kiss.jpg", 
       rec: false,
       link: "project/article/2026/korea/sirens-kiss/artikel1/index.html"
     },
-
    {
       title: "No Tail to Tell", 
       date: "2026-01-12",
