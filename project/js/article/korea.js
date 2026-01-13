@@ -1,5 +1,22 @@
 /* Data artikel */
    export const koreaArticles = [
+
+   {
+      title: "In Your Radiant Season", 
+      date: "2026-01-13",
+      desc: "MBC Bagikan Pembacaan Naskah Para Pemeran untuk Drama Terbaru | In Your Radiant Season", 
+      img: "project/picture/2026/korea/in-your-radiant-season/thumbnail/in-your-radiant-season.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/in-your-radiant-season/artikel1/index.html"
+    },
+   {
+      title: "Han Ji Min & Lee Byung Hun | Koreans", 
+      date: "2026-01-13",
+      desc: "Han Ji Min Bergabung dengan Lee Byung Hun dalam Pembicaraan untuk Membintangi Drama Ramake Terbaru | Koreans", 
+      img: "project/picture/2026/korea/han-ji-min/thumbnail/han-ji-min-x-lee-byung-hun.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/han-ji-min/artikel1/index.html"
+    },
    {
       title: "The Art Of Sarah", 
       date: "2026-01-13",
