@@ -1,9 +1,26 @@
 /* Data artikel */
    export const koreaArticles = [
+   {
+      title: "The Art Of Sarah", 
+      date: "2026-01-13",
+      desc: "Netflix Merilis Official Teaser untuk Drama Terbaru | The Art of Sarah", 
+      img: "project/picture/2026/korea/the-art-of-sarah/thumbnail/the-art-of-sarah-teaser.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/the-art-of-sarah/artikel2/index.html"
+    },
+
+    {
+      title: "The Art Of Sarah", 
+      date: "2026-01-13",
+      desc: "Netflix Bagikan Poster Pertama untuk Drama Terbaru | The Art of Sarah", 
+      img: "project/picture/2026/korea/the-art-of-sarah/thumbnail/the-art-of-sarah.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/the-art-of-sarah/artikel1/index.html"
+    },
     {
       title: "Go Min Si | Moral Family", 
       date: "2026-01-13",
-      desc: "Go Min Si Dikonfirmasi Bintangi Film Terbaru | Moral Family ", 
+      desc: "Go Min Si Dikonfirmasi Bintangi Film Terbaru | Moral Family", 
       img: "project/picture/2026/korea/go-min-si/thumbnail/go-min-si.jpg", 
       rec: false,
       link: "project/article/2026/korea/go-min-si/artikel1/index.html"
