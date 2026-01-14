@@ -47,16 +47,8 @@ document.addEventListener("click", () => {
 import { CreateFuse } from "./fuse.js";
 
 import { koreaArticles } from "./article/korea.js";
-import { chinaArticles } from "./article/china.js";
-import { japanArticles } from "./article/japan.js";
 import { thailandArticles } from "./article/thailand.js";
-
 import { rekomendasiDramaKoreaArticles } from "./recommended/rekomendasi-drama-korea.js";
-import { rekomendasiDramaChinaArticles } from "./recommended/rekomendasi-drama-china.js";
-import { rekomendasiDramaJapanArticles } from "./recommended/rekomendasi-drama-japan.js";
-import { rekomendasiDramaThailandArticles } from "./recommended/rekomendasi-drama-thailand.js";
-import { rekomendasiAnimeArticles } from "./recommended/rekomendasi-anime.js";
-
 import { varietyKoreaArticles } from "./article/variety-korea.js";
 
 /* =========================
@@ -65,25 +57,13 @@ import { varietyKoreaArticles } from "./article/variety-korea.js";
 const articlesData = {
   all: [
     ...koreaArticles,
-    ...chinaArticles,
-    ...japanArticles,
     ...thailandArticles,
     ...rekomendasiDramaKoreaArticles,
-    ...rekomendasiDramaChinaArticles,
-    ...rekomendasiDramaJapanArticles,
-    ...rekomendasiDramaThailandArticles,
-    ...rekomendasiAnimeArticles,
     ...varietyKoreaArticles
   ],
   korea: koreaArticles,
-  china: chinaArticles,
-  japan: japanArticles,
   thailand: thailandArticles,
   rekomendasiDramaKorea: rekomendasiDramaKoreaArticles,
-  rekomendasiDramaChina: rekomendasiDramaChinaArticles,
-  rekomendasiDramaJapan: rekomendasiDramaJapanArticles,
-  rekomendasiDramaThailand: rekomendasiDramaThailandArticles,
-  rekomendasiAnime: rekomendasiAnimeArticles,
   varietyKorea: varietyKoreaArticles
 };
 
