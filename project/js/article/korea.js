@@ -1,5 +1,22 @@
 /* Data artikel */
    export const koreaArticles = [
+
+{
+      title: "Jisung NCT Dream", 
+      date: "2026-01-14",
+      desc: "Jisung NCT Dikonfirmasi Akan Membintangi | Crash 2", 
+      img: "project/picture/2026/korea/jisung-nct/thumbnail/jisung-nct.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/jisung-nct/artikel1/index.html"
+    },
+   {
+      title: "The Dealer", 
+      date: "2026-01-14",
+      desc: "Netflix Bagikan Pembacaan Naskah Para Pemeran untuk Drama Terbaru | The Dealer", 
+      img: "project/picture/2026/korea/the-dealer/thumbnail/the-dealer.jpg", 
+      rec: false,
+      link: "project/article/2026/korea/the-dealer/artikel1/index.html"
+    },
     {
       title: "Lee Yul Eum, Hwang In Yeop & Hyeri | To You", 
       date: "2026-01-13",
