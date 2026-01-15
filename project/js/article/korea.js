@@ -1,7 +1,47 @@
 /* Data artikel */
    export const koreaArticles = [
-
 {
+      title: "The King's Warden", 
+      date: "2026-01-15",
+      desc: "Showbox Merilis Official Trailer untuk Film Terbaru | The King's Warden", 
+      img: "project/picture/2026/korea/the-kings-warden/thumbnail/the-kings-warden.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/the-kings-warden/artikel1/index.html"
+   },
+{
+      title: "Recipe for Love", 
+      date: "2026-01-15",
+      desc: "KBS2 Bagikan Poster Terbaru untuk Drama | Recipe for Love", 
+      img: "project/picture/2026/korea/recipe-for-love/thumbnail/recipe-for-love.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/recipe-for-love/artikel1/index.html"
+   },
+{
+      title: "Gardaners", 
+      date: "2026-01-15",
+      desc: "Song Kang Ho, Koo Kyo Hwan, Song Seung Heon, Lee Kwang Soo, dan lainnya Dikonfirmasi Akan Membintangi Film Terbaru | Gardeners", 
+      img: "project/picture/2026/korea/gardeners/thumbnail/gardeners.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/gardeners/artikel1/index.html"
+   },
+{
+      title: "Our Universe", 
+      date: "2026-01-15",
+      desc: "tvN Bagikan Teaser Terbaru untuk Drama | Our Universe", 
+      img: "project/picture/2026/korea/our-universe/thumbnail/our-universe.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/our-universe/artikel1/index.html"
+   },
+
+    {
+      title: "Efficient Dating For Singles", 
+      date: "2026-01-14",
+      desc: "JTBC Bagikan Poster Pertama untuk Drama Terbaru | Efficient Dating For Singles", 
+      img: "project/picture/2026/korea/efficient-dating-for-singles/thumbnail/efficient-dating-for-singles-2.jpg", 
+      rec: true,
+      link: "project/article/2026/korea/efficient-dating-for-singles/artikel3/index.html"
+   },
+    {
       title: "Jisung NCT Dream", 
       date: "2026-01-14",
       desc: "Jisung NCT Dikonfirmasi Akan Membintangi | Crash 2", 
