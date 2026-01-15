@@ -3,7 +3,7 @@
 {
       title: "The King's Warden", 
       date: "2026-01-15",
-      desc: "Showbox Merilis Official Trailer untuk Film Terbaru | The King's Warden", 
+      desc: "Showbox Merilis Official Trailer untuk Film Terbaru | The Kings Warden", 
       img: "project/picture/2026/korea/the-kings-warden/thumbnail/the-kings-warden.jpg", 
       rec: true,
       link: "project/article/2026/korea/the-kings-warden/artikel1/index.html"
